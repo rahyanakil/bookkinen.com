@@ -1,8 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit"
+import { booksApi } from "../api/CreateBookApi";
 
 export const store =configureStore({
     reducer:{
-        // counter:counterSlice.reducer
+        // booksApi:booksApi.reducer,
+        [booksApi.reducerPath]:booksApi.reducer,
+    },
+    middleware:(getDefaultMiddleware)=>{
+        return getDefaultMiddleware().concat(booksApi.middleware)
     }
 });
 

@@ -5,11 +5,12 @@ export const booksApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/' }),
     endpoints:(builder)=>({
         getBooks:builder.query({
-            query:()=>"api/books"
+            query:()=>"api/books",
+            })
         })
     })
 
 
-})
 
-export const { useGetBooksQuery } = booksApi
+
+export const { useGetBooksQuery } = booksApi;
