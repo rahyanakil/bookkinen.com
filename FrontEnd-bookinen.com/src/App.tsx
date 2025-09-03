@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import BookPage from "./home/books/BookPage";
 import BorrowSummary from "./home/borrow/BorrowSummary";
 import "./App.css";
+// import { Toaster } from "sonner";
+// import { Toaster } from "sonner";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/books" element={<BookPage />} />
           <Route path="/borrow-summary" element={<BorrowSummary />} />
         </Routes>
+         {/* <Toaster position="top-right" /> */}
+        {/* <Toaster richColors position="top-right" /> */}
       </div>
     </div>
   );

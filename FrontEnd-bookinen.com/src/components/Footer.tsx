@@ -25,7 +25,7 @@ function Footer() {
                           <a href="/" className="hover:underline">Bookinen</a>
                       </li>
                       <li>
-                          <a href="/book-store" className="hover:underline">Book Store</a>
+                          <a href="/" className="hover:underline">Book Store</a>
                       </li>
                   </ul>
               </div>
@@ -33,10 +33,10 @@ function Footer() {
                   <h2 className="mb-6 text-sm font-semibold   uppercase text-white">Follow us</h2>
                   <ul className="text-gray-500  font-medium">
                       <li className="mb-4">
-                          <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Sell Online</a>
+                          <a href="/" className="hover:underline ">Sell Online</a>
                       </li>
                       <li>
-                          <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Join Discord</a>
+                          <a href="/" className="hover:underline">Join Discord</a>
                       </li>
                   </ul>
               </div>

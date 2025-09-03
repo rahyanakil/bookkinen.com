@@ -5,13 +5,13 @@ import { API_URL } from "@/config";
 export const booksApi = createApi({
   reducerPath: "booksApi",
   baseQuery: fetchBaseQuery({ baseUrl: `${API_URL}` }),
-  tagTypes: ["books"],
+  tagTypes: ["books","borrows"],
   endpoints: (builder) => ({
     getBooks: builder.query({
       query: () => "/api/books",
       transformResponse: (response: { success: boolean; data: any[] }) =>
         response.data,
-      providesTags: ["books"],
+      providesTags: ["books","borrows"],
     }),
     addBook: builder.mutation({
       query: (body) => ({
