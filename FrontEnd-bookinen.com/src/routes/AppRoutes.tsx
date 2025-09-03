@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "@/components/Navbar"; 
 import BookPage from "@/home/books/BookPage";
 import BorrowSummary from "@/home/borrow/BorrowSummary";
+import Footer from "@/components/Footer";
 
 export default function AppRouter() {
   return (
@@ -15,6 +16,7 @@ export default function AppRouter() {
         {/* 404 fallback */}
         <Route path="*" element={<p className="text-center mt-20">Page Not Found</p>} />
       </Routes>
+      <Footer/>
     </>
   );
 }
