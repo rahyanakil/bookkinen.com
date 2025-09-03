@@ -30,36 +30,6 @@ This system allows users to manage books, perform borrow operations, and track b
 
 ---
 
-Query Parameters:
-
-.filter → filter by genre
-
-.sortBy → field to sort (e.g., createdAt)
-
-.sort → asc | desc
-
-.limit → number of results
-
----
-{
-  "success": true,
-  "data": [
-    {
-      "_id": "64f123abc4567890def12345",
-      "title": "The Theory of Everything",
-      "author": "Stephen Hawking",
-      "genre": "SCIENCE",
-      "isbn": "9780553380163",
-      "description": "An overview of cosmology and black holes.",
-      "copies": 5,
-      "available": true,
-      "createdAt": "2024-11-19T10:23:45.123Z",
-      "updatedAt": "2024-11-19T10:23:45.123Z"
-    }
-  ]
-}
----
-
 ### 💻 Frontend (React + TypeScript + Redux Toolkit Query)
 - **Books Page (`/books`)**
   - Table showing all books (title, author, genre, ISBN, copies, available, actions)
@@ -111,7 +81,8 @@ Query Parameters:
 #### ➤ Get All Books
 ```http
 GET /api/books
-
+```
+```bash
 /project-root
 │── backend
 │ ├── src
@@ -132,7 +103,7 @@ GET /api/books
 │
 └── README.md
 
-
+```bash
 ---
 
 ## ⚙️ Installation & Setup
