@@ -1,147 +1,176 @@
-💻 Frontend (React + TypeScript + Redux Toolkit Query)
+# 📚 Library Management System
 
-Books Page (/books)
+A **full-stack web application** built with **Node.js, Express, MongoDB, React, TypeScript, Redux Toolkit, and TailwindCSS**.  
+This system allows users to manage books, perform borrow operations, and track borrow summaries.  
 
-Table showing all books (title, author, genre, ISBN, copies, available, actions)
+---
 
-Actions: View, Edit, Delete, Borrow
+## 🚀 Features
 
-Add / Edit Book Pages
+### 🔧 Backend (Node.js + Express + MongoDB)
+- **Book Management**
+  - Add, update, delete, and view books
+  - Book schema includes: `title, author, genre, isbn, description, copies, available`
+  - Auto-updates availability → if `copies = 0` → `available = false`
 
-Form to create or update books
+- **Borrow Management**
+  - Borrow a book (reduces available copies)
+  - Borrow summary using MongoDB aggregation → shows total borrow count per book
 
-Optimistic updates on submission
+- **Error Handling**
+  - Centralized error middleware
+  - Validation & duplicate key error responses in JSON
 
-Borrow Page (/borrow/:bookId)
+- **Advanced Features**
+  - Pagination, filtering, and sorting  
+  - Example:  
+    ```
+    GET /api/books?filter=FANTASY&sortBy=createdAt&sort=desc&limit=5
+    ```
 
-Borrow form → select quantity + due date
+---
 
-Validation: cannot exceed available copies
+Query Parameters:
 
-Borrow Summary Page (/borrow-summary)
+.filter → filter by genre
 
-Shows aggregated report of borrowed books with total quantities
+.sortBy → field to sort (e.g., createdAt)
 
-UI / UX
+.sort → asc | desc
 
-Navbar with navigation
+.limit → number of results
 
-Footer with credits
+---
+{
+  "success": true,
+  "data": [
+    {
+      "_id": "64f123abc4567890def12345",
+      "title": "The Theory of Everything",
+      "author": "Stephen Hawking",
+      "genre": "SCIENCE",
+      "isbn": "9780553380163",
+      "description": "An overview of cosmology and black holes.",
+      "copies": 5,
+      "available": true,
+      "createdAt": "2024-11-19T10:23:45.123Z",
+      "updatedAt": "2024-11-19T10:23:45.123Z"
+    }
+  ]
+}
+---
 
-Responsive layout using TailwindCSS
+### 💻 Frontend (React + TypeScript + Redux Toolkit Query)
+- **Books Page (`/books`)**
+  - Table showing all books (title, author, genre, ISBN, copies, available, actions)
+  - Actions: View, Edit, Delete, Borrow
 
-Toast notifications for feedback
+- **Add / Edit Book Pages**
+  - Form to create or update books
+  - Optimistic updates on submission
 
-🛠️ Tech Stack
+- **Borrow Page (`/borrow/:bookId`)**
+  - Borrow form → select quantity + due date
+  - Validation: cannot exceed available copies
 
-Backend:
+- **Borrow Summary Page (`/borrow-summary`)**
+  - Shows aggregated report of borrowed books with total quantities
 
-Node.js
+- **UI / UX**
+  - Navbar with navigation
+  - Footer with credits
+  - Responsive layout using TailwindCSS
+  - Toast notifications for feedback
 
-Express.js
+---
 
-MongoDB + Mongoose
+## 🛠️ Tech Stack
 
-TypeScript
+**Backend:**  
+- Node.js  
+- Express.js  
+- MongoDB + Mongoose  
+- TypeScript  
 
-Frontend:
+**Frontend:**  
+- React  
+- TypeScript  
+- Redux Toolkit + RTK Query  
+- TailwindCSS  
 
-React
+**Others:**  
+- ESLint + Prettier  
+- Vite (for frontend bundling)  
 
-TypeScript
+---
 
-Redux Toolkit + RTK Query
+## ⚡ API Endpoints
 
-TailwindCSS
+### 📘 Books
 
-Others:
+#### ➤ Get All Books
+```http
+GET /api/books
 
-ESLint + Prettier
-
-Vite (for frontend bundling)
-
-⚡ API Endpoints
-📘 Books
-
-GET /api/books → Get all books (with filter, sort, pagination)
-
-POST /api/books → Add a new book
-
-GET /api/books/:id → Get single book
-
-PUT /api/books/:id → Update book
-
-DELETE /api/books/:id → Delete book
-
-📖 Borrow
-
-POST /api/borrow → Borrow a book
-
-GET /api/borrow/summary → Borrow summary
-
-📂 Project Structure
 /project-root
 │── backend
-│   ├── src
-│   │   ├── app.ts
-│   │   ├── models/
-│   │   ├── controllers/
-│   │   ├── routes/
-│   │   └── middlewares/
-│   └── package.json
+│ ├── src
+│ │ ├── app.ts
+│ │ ├── models/
+│ │ ├── controllers/
+│ │ ├── routes/
+│ │ └── middlewares/
+│ └── package.json
 │
 │── frontend
-│   ├── src
-│   │   ├── pages/
-│   │   ├── components/
-│   │   ├── store/
-│   │   └── App.tsx
-│   └── package.json
+│ ├── src
+│ │ ├── pages/
+│ │ ├── components/
+│ │ ├── store/
+│ │ └── App.tsx
+│ └── package.json
 │
 └── README.md
 
-⚙️ Installation & Setup
-1️⃣ Backend Setup
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Backend Setup
+```bash
 cd backend
 npm install
 npm run dev
 
-
-Create .env file:
-
+```bash
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
-
-2️⃣ Frontend Setup
+```bash
 cd frontend
 npm install
 npm run dev
 
 🔄 Backend–Frontend Integration
 
-RTK Query hooks:
+    RTK Query hooks:
 
-useGetBooksQuery() → /api/books
+        .useGetBooksQuery() → /api/books
 
-useCreateBookMutation() → POST /api/books
+        .useCreateBookMutation() → POST /api/books
 
-useBorrowBookMutation() → POST /api/borrow
+        .useBorrowBookMutation() → POST /api/borrow
 
-useGetBorrowSummaryQuery() → /api/borrow/summary
-
-📸 Screenshots
-
-(👉 Add your screenshots here once frontend is ready, e.g. Books page, Borrow page, Summary page)
+        .useGetBorrowSummaryQuery() → /api/borrow/summary
 
 ✅ Deliverables
 
 Separate repos/folders for backend & frontend
 
-Deployed links (Backend → Vercel, Frontend → Vercel/Netlify)
+Proper README (this file)
 
+Deployed links (Backend → Render/Heroku, Frontend → Vercel/Netlify)
 👨‍💻 Author
 
 Developed by Rahyan Akil ✨
-👉 GitHub
- | LinkedIn
-
+🔗 GitHub | LinkedIn
